@@ -40,9 +40,6 @@ namespace Prova_UCDB.Controllers
             return View();
         }
 
-        // POST: Pedido/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,NomeProduto,Valor,DataVencimento")] Pedido pedido)
@@ -57,7 +54,6 @@ namespace Prova_UCDB.Controllers
             return View(pedido);
         }
 
-        // GET: Pedido/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -69,12 +65,10 @@ namespace Prova_UCDB.Controllers
             {
                 return HttpNotFound();
             }
+
             return View(pedido);
         }
 
-        // POST: Pedido/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,NomeProduto,Valor,DataVencimento")] Pedido pedido)
@@ -88,7 +82,6 @@ namespace Prova_UCDB.Controllers
             return View(pedido);
         }
 
-        // GET: Pedido/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -100,10 +93,10 @@ namespace Prova_UCDB.Controllers
             {
                 return HttpNotFound();
             }
+
             return View(pedido);
         }
 
-        // POST: Pedido/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -120,6 +113,7 @@ namespace Prova_UCDB.Controllers
             {
                 db.Dispose();
             }
+
             base.Dispose(disposing);
         }
     }
