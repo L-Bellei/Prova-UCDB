@@ -90,3 +90,5 @@ C:\Users\Frebells\OneDrive\Área de Trabalho\ProvaUCDB\Prova_UCDB\Prova_UCDB\Pro
 C:\Users\Frebells\OneDrive\Área de Trabalho\ProvaUCDB\Prova_UCDB\Prova_UCDB\Prova_UCDB\bin\EntityFramework.SqlServer.xml
 C:\Users\Frebells\OneDrive\Área de Trabalho\ProvaUCDB\Prova_UCDB\Prova_UCDB\Prova_UCDB\obj\Debug\Prova_UCDB.Migrations.InitialCreate.resources
 C:\Users\Frebells\OneDrive\Área de Trabalho\ProvaUCDB\Prova_UCDB\Prova_UCDB\Prova_UCDB\obj\Debug\Prova_UCDB.csproj.GenerateResource.cache
+C:\Users\Frebells\OneDrive\Área de Trabalho\ProvaUCDB\Prova_UCDB\Prova_UCDB\Prova_UCDB\obj\Debug\Prova_UCDB.Migrations.desconto_percentual.resources
+C:\Users\Frebells\OneDrive\Área de Trabalho\ProvaUCDB\Prova_UCDB\Prova_UCDB\Prova_UCDB\obj\Debug\Prova_UCDB.Migrations.desconto_percentual_Alterar.resources

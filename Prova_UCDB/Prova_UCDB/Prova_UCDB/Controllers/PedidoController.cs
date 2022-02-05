@@ -1,8 +1,10 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Windows;
 using Prova_UCDB.DAO;
 using Prova_UCDB.Models;
 
@@ -80,6 +82,48 @@ namespace Prova_UCDB.Controllers
         {
             if (ModelState.IsValid)
             {
+                db.Entry(pedido).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(pedido);
+        }
+
+        public ActionResult Desconto(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Pedido pedido = db.Pedido.Find(id);
+            if (pedido == null)
+            {
+                return HttpNotFound();
+            }
+            return View(pedido);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Desconto([Bind(Include = "Id,NomePedido,Valor,DataVencimento,DescontoPercentual")] Pedido pedido)
+        {
+            if (ModelState.IsValid)
+            {
+                double valorDesconto = (double)pedido.DescontoPercentual;
+                double descontoCalculado = ((valorDesconto / 100) * pedido.Valor);
+                if (descontoCalculado >= pedido.Valor)
+                {
+                    MessageBox.Show("Valor Desconto superior ou igual a 100%");
+                    return View(pedido);
+                } 
+
+                if(DateTime.Now > pedido.DataVencimento)
+                {
+                    MessageBox.Show("Produto Vencido, não é possível aplicar desconto");
+                    return View(pedido);
+                }
+
+                pedido.Valor = pedido.Valor - descontoCalculado; 
                 db.Entry(pedido).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

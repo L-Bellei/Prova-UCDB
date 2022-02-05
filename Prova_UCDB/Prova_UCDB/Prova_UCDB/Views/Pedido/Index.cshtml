@@ -24,22 +24,24 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NomePedido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Valor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataVencimento)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+<tr style='background-color: @(item.DataVencimento < DateTime.Now ? "red" : item.DataVencimento == DateTime.Now 
+                                            || item.DataVencimento < DateTime.Now.AddDays(3)? "yellow" : "green");'> 
+    <td>
+        @Html.DisplayFor(modelItem => item.NomePedido)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Valor)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DataVencimento)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
+        @Html.ActionLink("Desconto", "Desconto", new { id = item.Id })
+    </td>
+</tr>
 }
 
 </table>

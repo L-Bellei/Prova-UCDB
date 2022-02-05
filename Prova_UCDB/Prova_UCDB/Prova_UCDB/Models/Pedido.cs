@@ -13,5 +13,6 @@ namespace Prova_UCDB.Models
         public double Valor { get; set; }
         [Required]
         public DateTime DataVencimento { get; set; }
+        public double? DescontoPercentual { get; set; } = 0;
     }
 }
