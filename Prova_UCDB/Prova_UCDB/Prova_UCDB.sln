@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prova_UCDB", "Prova_UCDB\Prova_UCDB.csproj", "{7A90E1BF-976E-4D4C-8AFF-0475C765DBA2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A90E1BF-976E-4D4C-8AFF-0475C765DBA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A90E1BF-976E-4D4C-8AFF-0475C765DBA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A90E1BF-976E-4D4C-8AFF-0475C765DBA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A90E1BF-976E-4D4C-8AFF-0475C765DBA2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {94352161-A139-4FBB-87E7-BF849D7FEA83}
+	EndGlobalSection
+EndGlobal
