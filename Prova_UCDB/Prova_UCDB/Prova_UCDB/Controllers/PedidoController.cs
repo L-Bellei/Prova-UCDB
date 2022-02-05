@@ -1,26 +1,24 @@
-﻿using System;
+﻿using Prova_UCDB.DAO;
+using Prova_UCDB.Models;
+using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using System.Windows;
-using Prova_UCDB.DAO;
-using Prova_UCDB.Models;
 
 namespace Prova_UCDB.Controllers
 {
     public class PedidoController : Controller
     {
         private Contexto db = new Contexto();
-
-        // GET: Pedido
+        private const int DENOMINADOR_CALCULO = 100;
+         
         public ActionResult Index()
         {
             return View(db.Pedido.ToList());
         }
-
-        // GET: Pedido/Details/5
+         
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -34,19 +32,15 @@ namespace Prova_UCDB.Controllers
             }
             return View(pedido);
         }
-
-        // GET: Pedido/Create
+         
         public ActionResult Create()
         {
             return View();
         }
-
-        // POST: Pedido/Create
-        // Para se proteger de mais ataques, habilite as propriedades específicas às quais você quer se associar. Para 
-        // obter mais detalhes, veja https://go.microsoft.com/fwlink/?LinkId=317598.
+         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,NomePedido,Valor,DataVencimento")] Pedido pedido)
+        public ActionResult Create([Bind(Include = "Id, NomePedido, Valor, DataVencimento")] Pedido pedido)
         {
             if (ModelState.IsValid)
             {
@@ -57,8 +51,7 @@ namespace Prova_UCDB.Controllers
 
             return View(pedido);
         }
-
-        // GET: Pedido/Edit/5
+         
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -72,13 +65,10 @@ namespace Prova_UCDB.Controllers
             }
             return View(pedido);
         }
-
-        // POST: Pedido/Edit/5
-        // Para se proteger de mais ataques, habilite as propriedades específicas às quais você quer se associar. Para 
-        // obter mais detalhes, veja https://go.microsoft.com/fwlink/?LinkId=317598.
+ 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,NomePedido,Valor,DataVencimento")] Pedido pedido)
+        public ActionResult Edit([Bind(Include = "Id, NomePedido, Valor, DataVencimento")] Pedido pedido)
         {
             if (ModelState.IsValid)
             {
@@ -91,33 +81,32 @@ namespace Prova_UCDB.Controllers
 
         public ActionResult Desconto(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            if (id == null) 
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest); 
+
             Pedido pedido = db.Pedido.Find(id);
-            if (pedido == null)
-            {
+            if (pedido == null) 
                 return HttpNotFound();
-            }
+
             return View(pedido);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Desconto([Bind(Include = "Id,NomePedido,Valor,DataVencimento,DescontoPercentual")] Pedido pedido)
+        public ActionResult Desconto([Bind(Include = "Id, NomePedido, Valor, DataVencimento, DescontoPercentual")] Pedido pedido)
         {
             if (ModelState.IsValid)
             {
                 double valorDesconto = (double)pedido.DescontoPercentual;
-                double descontoCalculado = ((valorDesconto / 100) * pedido.Valor);
+                double descontoCalculado = ((valorDesconto / DENOMINADOR_CALCULO) * pedido.Valor);
                 if (descontoCalculado >= pedido.Valor)
                 {
                     MessageBox.Show("Valor Desconto superior ou igual a 100%");
                     return View(pedido);
-                } 
+                }
 
-                if(DateTime.Now > pedido.DataVencimento)
+                bool produtoEstaVencido = DateTime.Now > pedido.DataVencimento ? true : false;
+                if (produtoEstaVencido)
                 {
                     MessageBox.Show("Produto Vencido, não é possível aplicar desconto");
                     return View(pedido);
@@ -130,23 +119,19 @@ namespace Prova_UCDB.Controllers
             }
             return View(pedido);
         }
-
-        // GET: Pedido/Delete/5
+         
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
+            if (id == null) 
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+           
             Pedido pedido = db.Pedido.Find(id);
             if (pedido == null)
-            {
                 return HttpNotFound();
-            }
+
             return View(pedido);
         }
-
-        // POST: Pedido/Delete/5
+         
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
