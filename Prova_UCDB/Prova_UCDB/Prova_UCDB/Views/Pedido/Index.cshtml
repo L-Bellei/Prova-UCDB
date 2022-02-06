@@ -4,9 +4,9 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Lista de Pedidos</h2>
+<h2 class="textStyle text-center" style="font-size: 70px; padding-bottom: 50px ">Lista de Pedidos</h2>
 
-<p class="textStyle btn btn-default">
+<p class="textStyle btn btn-default" style="margin-bottom: 15px">
     @Html.ActionLink("Inserir Pedido", "Create")
 </p>
 <table class="table">
@@ -44,7 +44,7 @@
 </tr>
 }
 </table>
-<footer>
+<footer style="padding-top: 150px">
     <p class="textStyle">Legenda:</p>  
     <p class="textStyle corVencido">Pedidos Atrasados</p>
     <p class="textStyle corQuaseVencido">Pedidos proximos do vencimento</p>
