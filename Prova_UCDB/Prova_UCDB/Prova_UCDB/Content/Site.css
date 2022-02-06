@@ -18,14 +18,30 @@ textarea {
     max-width: 280px;
 }
 
-td.bold {
-    font-weight: bold;
+.textStyle {
+    color: azure;
+    font-size: 20px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    -webkit-text-stroke-color: #aeadad;
+    -webkit-text-stroke-width: 1px;
 }
 
-.textStyle {
-    color : #ffffff;
-    font-size : 25px;
-    font-family : 'Courier New';
+.textStyleForButtons {
+    color: #aeadad;
+    font-size: 16px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.corVencido {
+    font-size: 12px;
+    color: #f51313;
+    -webkit-text-stroke-color: #ff0000;
+    -webkit-text-stroke-width: 1px; 
+}
+
+.corQuaseVencido {
+    font-size: 12px;
+    color: #FFFF00;
+    -webkit-text-stroke-color: #ffd800;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color : #000000;
 }
