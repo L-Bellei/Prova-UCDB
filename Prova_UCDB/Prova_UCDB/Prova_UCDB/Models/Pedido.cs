@@ -19,7 +19,7 @@ namespace Prova_UCDB.Models
         [Display(Name = "Data do vencimento")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:d}")]
         public DateTime DataVencimento { get; set; }
-        [Display(Name = "Percentual de desconto (%) ")]
+        [Display(Name = "Percentual de desconto(%)")]
         public double? DescontoPercentual { get; set; } = 0;
     }
 }

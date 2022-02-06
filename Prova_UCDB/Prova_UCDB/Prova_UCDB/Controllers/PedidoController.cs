@@ -22,14 +22,12 @@ namespace Prova_UCDB.Controllers
         public ActionResult Details(int? id)
         {
             if (id == null)
-            {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            
             Pedido pedido = db.Pedido.Find(id);
             if (pedido == null)
-            {
                 return HttpNotFound();
-            }
+            
             return View(pedido);
         }
          
@@ -48,21 +46,18 @@ namespace Prova_UCDB.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(pedido);
         }
          
         public ActionResult Edit(int? id)
         {
             if (id == null)
-            {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            
             Pedido pedido = db.Pedido.Find(id);
             if (pedido == null)
-            {
                 return HttpNotFound();
-            }
+            
             return View(pedido);
         }
  
@@ -145,9 +140,8 @@ namespace Prova_UCDB.Controllers
         protected override void Dispose(bool disposing)
         {
             if (disposing)
-            {
                 db.Dispose();
-            }
+
             base.Dispose(disposing);
         }
     }
