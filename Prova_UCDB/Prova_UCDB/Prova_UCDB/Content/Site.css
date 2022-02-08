@@ -19,15 +19,16 @@ textarea {
 }
 
 .textStyle {
-    color: azure;
+    color: #000000;
     font-size: 20px;
+    font-stretch: semi-expanded;
     font-family: Verdana, Arial, Helvetica, sans-serif;
-    -webkit-text-stroke-color: #aeadad;
+    -webkit-text-stroke-color: #221e1e;
     -webkit-text-stroke-width: 1px;
 }
 
 .textStyleForButtons {
-    color: #aeadad;
+    color: #000000;
     font-size: 16px;
     font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -43,5 +44,12 @@ textarea {
     font-size: 12px;
     color: #FFFF00;
     -webkit-text-stroke-color: #ffd800;
+    -webkit-text-stroke-width: 1px;
+}
+
+.emdia {
+    font-size: 12px;
+    color: #5dd05b;
+    -webkit-text-stroke-color: #5dd05b;
     -webkit-text-stroke-width: 1px;
 }
