@@ -1,5 +1,5 @@
 
-Para utilização da solução clonar o repositório e executar.
+Para utilização da solução clonar o repositório, dentro da solução -> exclua a pasta App_DATA -> clique com o botão direito na aplicação -> Add -> Add ASP.net Folder -> App_DATA
 
 Controle de pedidos
 
